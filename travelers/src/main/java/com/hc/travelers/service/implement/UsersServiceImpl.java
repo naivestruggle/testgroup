@@ -16,7 +16,7 @@ public class UsersServiceImpl implements UsersService{
 	
 	@Override
 	@Transactional
-	final public CustomUsers regist(CustomUsers registUser,String code,String sessionCode) throws Exception {
+	final public CustomUsers regist(CustomUsers registUser,String verifyCode,String sessionCode) throws Exception {
 		
 		//验证手机号
 		final String telphoneNumber = registUser.getUserTel();
