@@ -1,6 +1,8 @@
 package com.hc.travelers.mapper;
 
 import java.sql.Date;
+import java.sql.Timestamp;
+import java.util.List;
 
 import javax.annotation.Resource;
 
@@ -29,6 +31,14 @@ public class TestUsersMapper {
 		user.setUserSex(0);
 		user.setUserImgpath("wqeqweqw");
 		user.setUserStatus(0);
+		user.setUserCreatetime(new Timestamp(new java.util.Date().getTime()));
 		usersMapper.insert(user);
+		System.out.println(user.getUserId());
+	}
+	
+	@Test
+	public void testSelectById() throws Exception{
+		List<CustomUsers> userList = usersMapper.selectById(12);
+		System.out.println(userList);
 	}
 }

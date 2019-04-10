@@ -29,12 +29,14 @@ final public class UsersController {
 	 */
 	@RequestMapping(value="regist",produces="text/html;charset=UTF-8")
 	private final void regist(String verifyCode,CustomUsers registUser,HttpSession session,HttpServletResponse response)throws Exception{
-		System.out.println(registUser);
+		final String userTel = registUser.getUserTel();
 		response.setContentType("text/html;charset=utf-8");
-		String sessionVerifyCode = (String)session.getAttribute(registUser.getUserTel()+ "sessionVerifyCode");
+		final String sessionVerifyCode = (String)session.getAttribute(userTel+ "sessionVerifyCode");
 		try {
 			//注册
-			CustomUsers user = usersService.regist(registUser, verifyCode, sessionVerifyCode);
+			final CustomUsers user = usersService.regist(registUser, verifyCode, sessionVerifyCode);
+			//清空验证码
+			session.removeAttribute(userTel+ "sessionVerifyCode");
 			//登录
 			session.setAttribute("loginedUser", user);
 			//响应结果

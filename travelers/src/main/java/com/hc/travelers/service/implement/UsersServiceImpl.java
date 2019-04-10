@@ -1,5 +1,7 @@
 package com.hc.travelers.service.implement;
 
+import java.sql.Timestamp;
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -7,6 +9,7 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.common.utils.date.DateUtils;
 import com.common.utils.string.Code;
 import com.common.utils.string.MD5;
 import com.common.utils.string.Regx;
@@ -54,11 +57,24 @@ final public class UsersServiceImpl implements UsersService{
 		//密码加密
 		registUser.setUserPassword(MD5.parseMD5(password));
 		
+		//设置昵称
+		registUser.setUserUsername(Code.createUserName("hc", ""));
+		
+		//设置创建时间
+		registUser.setUserCreatetime(new Timestamp(new Date().getTime()));
+		
+		//设置用户初始状态
+		registUser.setUserStatus(1);
+		
+		//设置用户初始性别
+		registUser.setUserSex(1);
+		
 		//插入用户
 		usersMapper.insert(registUser);
 		
+		//返回插入的用户ID
 		Integer userId = registUser.getUserId();
-		System.out.println("userId:"+userId);
+//		System.out.println("userId:"+userId);
 		
 		//查询用户
 		final List<CustomUsers> userList = usersMapper.selectById(userId);

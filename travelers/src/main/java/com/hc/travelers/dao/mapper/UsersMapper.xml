@@ -13,7 +13,7 @@
 	    <result column="user_sex" property="userSex" jdbcType="INTEGER" />
 	    <result column="user_imgpath" property="userImgpath" jdbcType="VARCHAR" />
 	    <result column="user_status" property="userStatus" jdbcType="INTEGER" />
-	    <result column="user_createtime" property="userCreatetime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+	    <result column="user_createtime" property="userCreatetime" jdbcType="TIMESTAMP" />
 	</resultMap>
 	<sql id="allKeys">
 		user_id,user_username,user_password,user_tel,user_email,user_birthday,user_sex,user_imgpath,user_status,user_createtime
@@ -22,10 +22,10 @@
 		#{userId,jdbcType=INTEGER}, #{userUsername,jdbcType=VARCHAR}, #{userPassword,jdbcType=VARCHAR}, 
       #{userTel,jdbcType=VARCHAR}, #{userEmail,jdbcType=VARCHAR}, #{userBirthday,jdbcType=DATE}, 
       #{userSex,jdbcType=INTEGER}, #{userImgpath,jdbcType=VARCHAR}, #{userStatus,jdbcType=INTEGER}, 
-      #{userCreatetime,jdbcType=TIMESTAMP}
+      #{userCreatetime}
 	</sql>
 	
-	<insert id="insert" parameterType="com.hc.travelers.custombean.CustomUsers">  
+	<insert id="insert" parameterType="com.hc.travelers.custombean.CustomUsers" useGeneratedKeys="true" keyProperty="userId">  
 		insert into users (<include refid="allKeys"/>)
    		values(<include refid="allValues"/>) 
 	</insert>
