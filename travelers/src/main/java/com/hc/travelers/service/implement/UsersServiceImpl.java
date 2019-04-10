@@ -23,7 +23,7 @@ public class UsersServiceImpl implements UsersService{
 		
 		//插入用户
 		CustomUsers valueUser = null;
-		usersMapper.insert(valueUser);
+		CustomUsers user = usersMapper.insert(valueUser);
 		
 		return null;
 	}
