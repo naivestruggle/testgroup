@@ -19,12 +19,9 @@
 		function sendCode(){
 			console.log("发送验证码的js方法。。。");
 			var data = {
-					/* userTel : $("#userTel").val(),
-					userPassword : $("#userPassword").val(),
-					userPassword2 : $("#userPassword2").val(), */
-					userTel : $("#userTel").val()
+					account : $("#userTel").val()
 			};
-			$.post("sendVerifyCode",data,function(data){
+			$.post("sendRegistVerifyCode",data,function(data){
 				if(data == "ok"){
 					alert("验证码发送成功,请注意查收!");
 				}else{

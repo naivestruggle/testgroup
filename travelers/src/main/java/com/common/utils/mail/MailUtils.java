@@ -24,7 +24,7 @@ public class MailUtils {
 	 * @param c	当前类
 	 * @param to	发送到
 	 * @param code	字符变量
-	 * @param fileName	mail所在的文件
+	 * @param fileName	mail所在的文件   mail/文件
 	 */
 	public static void sendMail(Class<?> thisClass,String to,Object[] codes,String fileName){
 		//获取配置文件内容
