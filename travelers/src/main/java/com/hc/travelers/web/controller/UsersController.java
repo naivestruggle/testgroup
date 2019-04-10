@@ -54,12 +54,12 @@ final public class UsersController {
 	}
 	
 	@RequestMapping("login")
-	private final void login(CustomUsers loginedUser,HttpServletResponse response){
-		
+	private final void login(String userInfo,String verifyCode,HttpServletResponse response){
+	
 	}
 	
-	@RequestMapping(value="sendVerifyCode")
-	private final void sendVerifyCode(String userTel,HttpSession session,HttpServletResponse response)throws Exception{
+	@RequestMapping(value="sendRegistVerifyCode")
+	private final void sendRegistVerifyCode(String userTel,HttpSession session,HttpServletResponse response)throws Exception{
 		response.setContentType("text/html;charset=utf-8");
 		try {
 			//发送验证码

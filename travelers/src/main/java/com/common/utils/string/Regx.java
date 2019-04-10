@@ -8,7 +8,7 @@ final public class Regx {
 	public static final String NAME_REGX = "^(([\\u4e00-\\u9fa5]{2,8}))$"; // 姓名
 	public static final String ID_NUM_REGX = "[1-9]\\d{16}[0-9X]"; // 身份证号
 	public static final String QQ_NUM_REGX = "[1-9]\\d{4,10}"; // QQ号
-	public static final String EMAIL_REGX = "^[A-Za-z\\d]+([-_.][A-Za-z\\d]+)*@([A-Za-z\\d]+[-.])+[A-Za-z\\d]{2,4}$"; // 邮箱
+	private static final String EMAIL_REGX = "^[A-Za-z\\d]+([-_.][A-Za-z\\d]+)*@([A-Za-z\\d]+[-.])+[A-Za-z\\d]{2,4}$"; // 邮箱
 	public static final String AGE_REGX = "\\d{1,3}"; // 年龄
 	public static final String SEX_REGX = "[男女]"; // 性别
 	private static final String TEL_NUM_REGX = "[1][34578]\\d{9}"; // 手机号码
@@ -55,5 +55,16 @@ final public class Regx {
 		if(!verifyCode1.equals(verifyCode2))
 			return false;
 		return true;
+	}
+	
+	/**
+	 * 验证邮箱格式
+	 * @param email
+	 * @return
+	 */
+	public static final boolean regxEmail(String email) {
+		if(email == null)
+			return false;
+		return email.matches(EMAIL_REGX);
 	}
 }
