@@ -1,5 +1,7 @@
 package com.hc.travelers.mapper;
 
+import java.sql.Date;
+
 import javax.annotation.Resource;
 
 import org.junit.Test;

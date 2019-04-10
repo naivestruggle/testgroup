@@ -58,6 +58,5 @@ public interface UsersMapper {
 	 * @throws Exception
 	 */
 	void insert(CustomUsers valueUser)throws Exception;
-	//insert into users(    user_id,user_username,user_password,user_tel,user_email,user_birthday,user_sex,user_imgpath,user_status,user_createtime   ) values(null,'yxh','123','15570906290','123123@qq.com',null,0,'123123',0,null)
 
 }

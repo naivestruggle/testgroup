@@ -19,13 +19,16 @@
 		user_id,user_username,user_password,user_tel,user_email,user_birthday,user_sex,user_imgpath,user_status,user_createtime
 	</sql>
 	<sql id="allValues">
-		#{userId},#{userUsername},#{userPassword},#{userTel},#{userEmail},#{userBirthday},#{userSex},#{userImgpath},#{userStatus},#{userCreatetime}
+		#{userId,jdbcType=INTEGER}, #{userUsername,jdbcType=VARCHAR}, #{userPassword,jdbcType=VARCHAR}, 
+      #{userTel,jdbcType=VARCHAR}, #{userEmail,jdbcType=VARCHAR}, #{userBirthday,jdbcType=DATE}, 
+      #{userSex,jdbcType=INTEGER}, #{userImgpath,jdbcType=VARCHAR}, #{userStatus,jdbcType=INTEGER}, 
+      #{userCreatetime,jdbcType=TIMESTAMP}
 	</sql>
 	
 	<insert id="insert" parameterType="com.hc.travelers.custombean.CustomUsers">  
-　　　　insert into users(<include refid="allKeys"/>) values(<include refid="allValues"/>) 
+		insert into users (<include refid="allKeys"/>)
+   		values(<include refid="allValues"/>) 
 	</insert>
-	
 	
 	<select id="selectAll" resultMap="selectResultMapper">
 		select <include refid="allKeys"/>
@@ -36,6 +39,7 @@
 		from users
 		where user_id = #{userId}
 	</select>
+	
 	<select id="selectByTel" resultMap="selectResultMapper">
 		select <include refid="allKeys"/>
 		from users
