@@ -1,0 +1,26 @@
+日期工具：
+	com.common.utils.date.DateUtils
+		>String formatToString(java.util.Date日期对象) : 时间格式化(返回日期字符串)
+
+文件上传工具：
+	com.common.utils.fileupload.FileUploadUtils
+		> String fileupload(MultipartFile文件对象 , HttpServletRequest请求对象 , String文件保存在服务器下的根目录)：文件上传（返回保存在数据库的路径）
+
+邮箱工具：
+	com.common.utils.mail.AttachBean ：文件部件对象（用来邮件发送文件）
+	com.common.utils.mail.Mail ：邮件对象
+	com.common.utils.mail.MailUtils ：邮件发送工具
+		> void sendMail(Class<?>当前本地的Class对象 ， String 发送到的邮箱地址 ，Object[]邮件中包含的变量值 ， String 邮件的配置文件) ：发送邮件（常用）
+		> Session createMailSession(String服务器主机名 ,String服务器用户名 ,String服务器密码) ： 创建邮件会话对象，返回一个邮件会话对象
+		> sendMail(Session邮件会话对象 ,Mail邮件对象) ： 发送邮件
+		
+字符串处理工具：
+	com.common.utils.string.Code ：生成特定规则的字符串（如验证码，id）
+		> String createVerifyCode(int生成验证码的长度,int生成验证码的类型（TEL | EMAIL）) ：创建验证码
+		> String createUserName(String前缀,String后缀) ：通过传入的前后缀生成一个唯一的字符串
+	com.common.utils.string.MD5 ： MD5加密
+		> String parseMD5(String 要加密的字符串) ： 对字符串进行MD5加密 ，返回加密后的字符串
+	com.common.utils.string.Regx ： 验证字符串
+		> boolean regxTelphone(final String 要验证的手机号) : 验证手机号码是否符合规则，符合返回true,不符合返回false
+		> boolean regxPassword(final String 要验证的密码) : 验证密码是否符合规则，符合返回true,不符合返回false
+		> boolean regxVerifCode(final String 验证码1,final String 验证码2) ： 验证两个验证码是否一致且不为null，符合返回true,不符合返回false

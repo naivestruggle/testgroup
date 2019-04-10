@@ -39,7 +39,7 @@ public class Code {
 	}
 	
 	/**
-	 * 生成唯一的字符串 11位
+	 * 生成唯一的字符串 
 	 * @param strBegin	字符串前缀
 	 * @param strEnd	字符串后缀
 	 * @param len		字符串数字区长度
