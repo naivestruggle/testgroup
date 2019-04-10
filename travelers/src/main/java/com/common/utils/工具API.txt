@@ -1,26 +1,26 @@
-ÈÕÆÚ¹¤¾ß£º
+æ—¥æœŸå·¥å…·ï¼š
 	com.common.utils.date.DateUtils
-		>String formatToString(java.util.DateÈÕÆÚ¶ÔÏó) : Ê±¼ä¸ñÊ½»¯(·µ»ØÈÕÆÚ×Ö·û´®)
+		> String formatToString(java.util.Dateæ—¥æœŸå¯¹è±¡) : æ—¶é—´æ ¼å¼åŒ–(è¿”å›æ—¥æœŸå­—ç¬¦ä¸²)
 
-ÎÄ¼şÉÏ´«¹¤¾ß£º
+æ–‡ä»¶ä¸Šä¼ å·¥å…·ï¼š
 	com.common.utils.fileupload.FileUploadUtils
-		> String fileupload(MultipartFileÎÄ¼ş¶ÔÏó , HttpServletRequestÇëÇó¶ÔÏó , StringÎÄ¼ş±£´æÔÚ·şÎñÆ÷ÏÂµÄ¸ùÄ¿Â¼)£ºÎÄ¼şÉÏ´«£¨·µ»Ø±£´æÔÚÊı¾İ¿âµÄÂ·¾¶£©
+		> String fileupload(MultipartFileæ–‡ä»¶å¯¹è±¡ , HttpServletRequestè¯·æ±‚å¯¹è±¡ , Stringæ–‡ä»¶ä¿å­˜åœ¨æœåŠ¡å™¨ä¸‹çš„æ ¹ç›®å½•)ï¼šæ–‡ä»¶ä¸Šä¼ ï¼ˆè¿”å›ä¿å­˜åœ¨æ•°æ®åº“çš„è·¯å¾„ï¼‰
 
-ÓÊÏä¹¤¾ß£º
-	com.common.utils.mail.AttachBean £ºÎÄ¼ş²¿¼ş¶ÔÏó£¨ÓÃÀ´ÓÊ¼ş·¢ËÍÎÄ¼ş£©
-	com.common.utils.mail.Mail £ºÓÊ¼ş¶ÔÏó
-	com.common.utils.mail.MailUtils £ºÓÊ¼ş·¢ËÍ¹¤¾ß
-		> void sendMail(Class<?>µ±Ç°±¾µØµÄClass¶ÔÏó £¬ String ·¢ËÍµ½µÄÓÊÏäµØÖ· £¬Object[]ÓÊ¼şÖĞ°üº¬µÄ±äÁ¿Öµ £¬ String ÓÊ¼şµÄÅäÖÃÎÄ¼ş) £º·¢ËÍÓÊ¼ş£¨³£ÓÃ£©
-		> Session createMailSession(String·şÎñÆ÷Ö÷»úÃû ,String·şÎñÆ÷ÓÃ»§Ãû ,String·şÎñÆ÷ÃÜÂë) £º ´´½¨ÓÊ¼ş»á»°¶ÔÏó£¬·µ»ØÒ»¸öÓÊ¼ş»á»°¶ÔÏó
-		> sendMail(SessionÓÊ¼ş»á»°¶ÔÏó ,MailÓÊ¼ş¶ÔÏó) £º ·¢ËÍÓÊ¼ş
+é‚®ç®±å·¥å…·ï¼š
+	æ–‡ä»¶éƒ¨ä»¶å¯¹è±¡ï¼ˆç”¨æ¥é‚®ä»¶å‘é€æ–‡ä»¶ï¼‰---------com.common.utils.mail.AttachBean 
+	é‚®ä»¶å¯¹è±¡---------com.common.utils.mail.Mail 
+	é‚®ä»¶å‘é€å·¥å…·---------com.common.utils.mail.MailUtils
+		> void sendMail(Class<?>å½“å‰æœ¬åœ°çš„Classå¯¹è±¡ ï¼Œ String å‘é€åˆ°çš„é‚®ç®±åœ°å€ ï¼ŒObject[]é‚®ä»¶ä¸­åŒ…å«çš„å˜é‡å€¼ ï¼Œ String é‚®ä»¶çš„é…ç½®æ–‡ä»¶) ï¼šå‘é€é‚®ä»¶ï¼ˆå¸¸ç”¨ï¼‰
+		> Session createMailSession(StringæœåŠ¡å™¨ä¸»æœºå ,StringæœåŠ¡å™¨ç”¨æˆ·å ,StringæœåŠ¡å™¨å¯†ç ) ï¼š åˆ›å»ºé‚®ä»¶ä¼šè¯å¯¹è±¡ï¼Œè¿”å›ä¸€ä¸ªé‚®ä»¶ä¼šè¯å¯¹è±¡
+		> sendMail(Sessioné‚®ä»¶ä¼šè¯å¯¹è±¡ ,Mailé‚®ä»¶å¯¹è±¡) ï¼š å‘é€é‚®ä»¶
 		
-×Ö·û´®´¦Àí¹¤¾ß£º
-	com.common.utils.string.Code £ºÉú³ÉÌØ¶¨¹æÔòµÄ×Ö·û´®£¨ÈçÑéÖ¤Âë£¬id£©
-		> String createVerifyCode(intÉú³ÉÑéÖ¤ÂëµÄ³¤¶È,intÉú³ÉÑéÖ¤ÂëµÄÀàĞÍ£¨TEL | EMAIL£©) £º´´½¨ÑéÖ¤Âë
-		> String createUserName(StringÇ°×º,Stringºó×º) £ºÍ¨¹ı´«ÈëµÄÇ°ºó×ºÉú³ÉÒ»¸öÎ¨Ò»µÄ×Ö·û´®
-	com.common.utils.string.MD5 £º MD5¼ÓÃÜ
-		> String parseMD5(String Òª¼ÓÃÜµÄ×Ö·û´®) £º ¶Ô×Ö·û´®½øĞĞMD5¼ÓÃÜ £¬·µ»Ø¼ÓÃÜºóµÄ×Ö·û´®
-	com.common.utils.string.Regx £º ÑéÖ¤×Ö·û´®
-		> boolean regxTelphone(final String ÒªÑéÖ¤µÄÊÖ»úºÅ) : ÑéÖ¤ÊÖ»úºÅÂëÊÇ·ñ·ûºÏ¹æÔò£¬·ûºÏ·µ»Øtrue,²»·ûºÏ·µ»Øfalse
-		> boolean regxPassword(final String ÒªÑéÖ¤µÄÃÜÂë) : ÑéÖ¤ÃÜÂëÊÇ·ñ·ûºÏ¹æÔò£¬·ûºÏ·µ»Øtrue,²»·ûºÏ·µ»Øfalse
-		> boolean regxVerifCode(final String ÑéÖ¤Âë1,final String ÑéÖ¤Âë2) £º ÑéÖ¤Á½¸öÑéÖ¤ÂëÊÇ·ñÒ»ÖÂÇÒ²»Îªnull£¬·ûºÏ·µ»Øtrue,²»·ûºÏ·µ»Øfalse
+å­—ç¬¦ä¸²å¤„ç†å·¥å…·ï¼š
+	ç”Ÿæˆç‰¹å®šè§„åˆ™çš„å­—ç¬¦ä¸²ï¼ˆå¦‚éªŒè¯ç ï¼Œidï¼‰---------com.common.utils.string.Code 
+		> String createVerifyCode(intç”ŸæˆéªŒè¯ç çš„é•¿åº¦,intç”ŸæˆéªŒè¯ç çš„ç±»å‹ï¼ˆTEL | EMAILï¼‰) ï¼šåˆ›å»ºéªŒè¯ç 
+		> String createUserName(Stringå‰ç¼€,Stringåç¼€) ï¼šé€šè¿‡ä¼ å…¥çš„å‰åç¼€ç”Ÿæˆä¸€ä¸ªå”¯ä¸€çš„å­—ç¬¦ä¸²
+	MD5åŠ å¯† ---------com.common.utils.string.MD5 
+		> String parseMD5(String è¦åŠ å¯†çš„å­—ç¬¦ä¸²) ï¼š å¯¹å­—ç¬¦ä¸²è¿›è¡ŒMD5åŠ å¯† ï¼Œè¿”å›åŠ å¯†åçš„å­—ç¬¦ä¸²
+	éªŒè¯å­—ç¬¦ä¸²---------com.common.utils.string.Regx 
+		> boolean regxTelphone(final String è¦éªŒè¯çš„æ‰‹æœºå·) : éªŒè¯æ‰‹æœºå·ç æ˜¯å¦ç¬¦åˆè§„åˆ™ï¼Œç¬¦åˆè¿”å›true,ä¸ç¬¦åˆè¿”å›false
+		> boolean regxPassword(final String è¦éªŒè¯çš„å¯†ç ) : éªŒè¯å¯†ç æ˜¯å¦ç¬¦åˆè§„åˆ™ï¼Œç¬¦åˆè¿”å›true,ä¸ç¬¦åˆè¿”å›false
+		> boolean regxVerifCode(final String éªŒè¯ç 1,final String éªŒè¯ç 2) ï¼š éªŒè¯ä¸¤ä¸ªéªŒè¯ç æ˜¯å¦ä¸€è‡´ä¸”ä¸ä¸ºnullï¼Œç¬¦åˆè¿”å›true,ä¸ç¬¦åˆè¿”å›false

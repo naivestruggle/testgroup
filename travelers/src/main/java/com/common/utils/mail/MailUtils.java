@@ -23,7 +23,8 @@ public class MailUtils {
 	 * 通过配置文件发送邮件
 	 * @param c	当前类
 	 * @param to	发送到
-	 * @param code	激活码
+	 * @param code	字符变量
+	 * @param fileName	mail所在的文件
 	 */
 	public static void sendMail(Class<?> thisClass,String to,Object[] codes,String fileName){
 		//获取配置文件内容
@@ -118,6 +119,19 @@ public class MailUtils {
 	
 	@Test
 	public void demo(){
-		sendMail(this.getClass(), "2550438618@qq.com", null, "alter_user_email.properties");
+//		sendMail(this.getClass(), "2550438618@qq.com", null, "alter_user_email.properties");
+		Properties props = new Properties();
+		try {
+			props.load(this.getClass().getClassLoader().getResourceAsStream("mail/user_regist_sendMailCode.properties"));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		String host = props.getProperty("host").trim();  //获取服务器主机
+		String uname = props.getProperty("uname").trim();  //获取邮箱用户名
+		String pwd = props.getProperty("pwd").trim();   //获取第三方登录授权密码
+		String from = props.getProperty("from").trim();   //获取发件人
+		String subject = props.getProperty("subject").trim();  //获取主题
+		String content = props.getProperty("content");  //获取邮件内容
+		System.out.println(host);
 	}
 }
