@@ -17,7 +17,6 @@ public class UsersServiceImpl implements UsersService{
 	@Override
 	@Transactional
 	final public CustomUsers regist(CustomUsers registUser,String verifyCode,String sessionCode) throws Exception {
-		
 		//验证手机号
 		final String telphoneNumber = registUser.getUserTel();
 		if(!Regx.regxTelphone(telphoneNumber))
@@ -33,10 +32,15 @@ public class UsersServiceImpl implements UsersService{
 		if(!password.equals(password2))
 			throw new UsersException("两次输入的密码不一致！");
 		
+		//验证验证码
+		if(!Regx.regxVerifCode(verifyCode, sessionCode))
+			throw new UsersException("验证码输入错误！");
 		
 		//查询是否存在
-		CustomUsers keyUser = null;
-		usersMapper.selectByUser(keyUser);
+		Integer count = usersMapper.selectByTelToCount(telphoneNumber);
+		if(count != null && count > 0)
+			throw new UsersException("手机号已注册！");
+		
 		
 		//插入用户
 		CustomUsers valueUser = null;
