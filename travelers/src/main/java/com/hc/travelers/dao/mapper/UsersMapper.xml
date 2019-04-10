@@ -3,7 +3,48 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.hc.travelers.dao.mapper.UsersMapper">
+	<resultMap type="com.hc.travelers.custombean.CustomUsers" id="selectResultMapper">
+		<id column="user_id" property="userId" jdbcType="INTEGER" />
+	    <result column="user_username" property="userUsername" jdbcType="VARCHAR" />
+	    <result column="user_password" property="userPassword" jdbcType="VARCHAR" />
+	    <result column="user_tel" property="userTel" jdbcType="VARCHAR" />
+	    <result column="user_email" property="userEmail" jdbcType="VARCHAR" />
+	    <result column="user_birthday" property="userBirthday" jdbcType="DATE" />
+	    <result column="user_sex" property="userSex" jdbcType="INTEGER" />
+	    <result column="user_imgpath" property="userImgpath" jdbcType="VARCHAR" />
+	    <result column="user_status" property="userStatus" jdbcType="INTEGER" />
+	    <result column="user_createtime" property="userCreatetime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+	</resultMap>
+	<sql id="allKeys">
+		user_id,user_username,user_password,user_tel,user_email,user_birthday,user_sex,user_imgpath,user_status,user_createtime
+	</sql>
+	<sql id="allValues">
+		#{userId},#{userUsername},#{userPassword},#{userTel},#{userEmail},#{userBirthday},#{userSex},#{userImgpath},#{userStatus},#{userCreatetime}
+	</sql>
+	
+	<insert id="insert" parameterType="com.hc.travelers.custombean.CustomUsers">  
+　　　　insert into users(<include refid="allKeys"/>) values(<include refid="allValues"/>) 
+	</insert>
 	
 	
+	<select id="selectAll" resultMap="selectResultMapper">
+		select <include refid="allKeys"/>
+		from users
+	</select>
+	<select id="selectById" resultMap="selectResultMapper">
+		select <include refid="allKeys"/>
+		from users
+		where user_id = #{userId}
+	</select>
+	<select id="selectByTel" resultMap="selectResultMapper">
+		select <include refid="allKeys"/>
+		from users
+		where user_tel = #{userTel}
+	</select>
 	
+	<select id="selectByNamePwd"  resultMap="selectResultMapper">
+		select <include refid="allKeys"/>
+		from users
+		where user_username = #{username} and user_password = #{password}
+	</select>
 </mapper>

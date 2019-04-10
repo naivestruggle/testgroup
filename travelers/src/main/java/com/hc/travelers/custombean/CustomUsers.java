@@ -17,7 +17,6 @@ final public class CustomUsers extends Users implements Serializable{
 
 	@Override
 	public String toString() {
-		return "CustomUsers [userPassword2=" + userPassword2 + ", getUserPassword2()=" + getUserPassword2() + "]";
+		return "CustomUsers [userPassword2=" + userPassword2 + ", toString()=" + super.toString() + "]";
 	}
-	
 }

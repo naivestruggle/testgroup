@@ -1,7 +1,7 @@
 package com.hc.travelers.bean;
 
-import java.security.Timestamp;
 import java.sql.Date;
+import java.sql.Timestamp;
 
 public class Users {
 	private Integer userId;

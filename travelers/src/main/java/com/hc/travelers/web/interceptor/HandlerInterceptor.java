@@ -18,10 +18,9 @@ public class HandlerInterceptor implements org.springframework.web.servlet.Handl
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
-		
+//		response.setCharacterEncoding("text/html;charset-utf-8");
 //		return false;	//拦截
 		// TODO Auto-generated method stub
-		
 		//放行
 		return org.springframework.web.servlet.HandlerInterceptor.super.preHandle(request, response, handler);
 	}

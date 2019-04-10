@@ -45,7 +45,7 @@ final public class Regx {
 	 * 验证两个验证码是否正确
 	 * @param verifyCode1	验证码1
 	 * @param verifyCode2	 验证码2
-	 * @return
+	 * @return	正确返回true / 错误返回false
 	 */
 	public static final boolean regxVerifCode(final String verifyCode1,final String verifyCode2){
 		if(verifyCode1 == null)
