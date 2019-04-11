@@ -8,6 +8,6 @@ public class testemail {
 	@Test
 	public void t() throws Exception {
 		Object[] code = {"55555"};
-		MailUtils.sendMail(this.getClass(), "807156237@qq.com", code, "mail/user_regist_sendMailCode.properties");
+//		MailUtils.sendMail(this.getClass(), "807156237@qq.com", code, "mail/user_regist_sendMailCode.properties");
 	}
 }
