@@ -19,7 +19,7 @@
 		function sendCode(){
 			console.log("发送验证码的js方法。。。");
 			var data = {
-					account : $("#userTel").val()
+					userTel : $("#userTel").val()
 			};
 			$.post("sendRegistVerifyCode",data,function(data){
 				if(data == "ok"){

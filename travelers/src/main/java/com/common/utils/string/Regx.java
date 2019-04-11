@@ -1,4 +1,4 @@
-package com.common.utils.string;
+ package com.common.utils.string;
 
 final public class Regx {
 	private Regx(){}
@@ -25,6 +25,7 @@ final public class Regx {
 	 * @return	正确返回true / 错误返回false
 	 */
 	public static final boolean regxTelphone(final String telphoneNumber){
+		System.out.println("手机号："+telphoneNumber);
 		if(telphoneNumber == null)
 			return false;
 		return telphoneNumber.matches(TEL_NUM_REGX);

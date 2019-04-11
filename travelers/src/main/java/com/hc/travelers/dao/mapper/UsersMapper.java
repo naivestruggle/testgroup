@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import com.hc.travelers.custombean.CustomUsers;
 
@@ -72,6 +73,24 @@ public interface UsersMapper {
 	 */
 	@Select("select count(1) from users where user_email = #{account}")
 	Integer selectByMailToCount(@Param("account")String userEmail) throws Exception;
+
+	/**
+	 * 根据手机号修改密码
+	 * @param userTel	手机号
+	 * @param userPassword	
+	 * @throws Exception
+	 */
+	@Update("update users set user_password = #{userPassword} where user_tel = #{userTel}")
+	void updatePwdByTel(@Param("userTel")String userTel,@Param("userPassword")String userPassword)throws Exception;
+
+	/**
+	 * 根据邮箱地址修改密码
+	 * @param userEmail
+	 * @param password
+	 */
+	@Update("update users set user_password = #{userPassword} where user_email = #{userEmail}")
+	void updatePwdByEmail(@Param("userEmail") String userEmail, @Param("userPassword") String userPassword);
+	
 
 	
 }

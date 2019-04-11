@@ -29,7 +29,7 @@ final public class UsersServiceImpl implements UsersService {
 	 */
 	@Override
 	@Transactional(rollbackFor = UsersException.class)
-	final public CustomUsers regist(CustomUsers registUser, String verifyCode, String sessionVerifyCode)
+	final public CustomUsers registService(CustomUsers registUser, String verifyCode, String sessionVerifyCode)
 			throws Exception {
 		// 验证手机号
 		final String telphoneNumber = registUser.getUserTel();
@@ -92,7 +92,8 @@ final public class UsersServiceImpl implements UsersService {
 	 * @throws Exception
 	 */
 	@Override
-	public CustomUsers login(String account, String verifyCode, String sessionVerifyCode) throws Exception {
+	@Transactional(rollbackFor = UsersException.class)
+	final public CustomUsers loginService(String account, String verifyCode, String sessionVerifyCode) throws Exception {
 		// 验证验证码
 		if (!Regx.regxVerifCode(verifyCode, sessionVerifyCode))
 			throw new UsersException("验证码输入错误！");
@@ -100,14 +101,14 @@ final public class UsersServiceImpl implements UsersService {
 		if (Regx.regxTelphone(account)) {
 			List<CustomUsers> userList = usersMapper.selectByTel(account);
 			// 如果有多个用户，则报错
-			if (userList.size() != 1) {
+			if (userList == null || userList.size() != 1) {
 				throw new UsersException("账号不正确！");
 			}
 			return userList.get(0);
 		} else if (Regx.regxEmail(account)) {
 			List<CustomUsers> userList = usersMapper.selectByMail(account);
 			// 如果有多个用户，则报错
-			if (userList.size() != 1) {
+			if (userList == null || userList.size() != 1) {
 				throw new UsersException("账号不正确！");
 			}
 			return userList.get(0);
@@ -120,7 +121,8 @@ final public class UsersServiceImpl implements UsersService {
 	 * 发送手机验证码
 	 */
 	@Override
-	public String sendTelVerifyCode(String userTel) throws Exception {
+	@Transactional(rollbackFor = UsersException.class)
+	final public String sendTelVerifyCodeService(String userTel) throws Exception {
 		// 验证手机号格式
 		if (!Regx.regxTelphone(userTel))
 			throw new UsersException("手机号格式不正确!");
@@ -149,9 +151,10 @@ final public class UsersServiceImpl implements UsersService {
 	 * 发送登录验证码
 	 */
 	@Override
-	public String sendLoginVerifyCode(String account) throws Exception {
+	@Transactional(rollbackFor = UsersException.class)
+	final public String sendLoginVerifyCodeService(String account) throws Exception {
 		// 生成验证码
-		String verifyCode = Code.createVerifyCode(6, Code.VERIFY_CODE_TYPE_TEL);
+		String verifyCode = null;
 		// 判断是手机号还是邮箱
 		if (Regx.regxTelphone(account)) {
 			// 发送手机验证码
@@ -162,6 +165,7 @@ final public class UsersServiceImpl implements UsersService {
 				throw new UsersException("该账号尚未注册，请先注册");
 			}
 			try {
+				verifyCode = Code.createVerifyCode(6, Code.VERIFY_CODE_TYPE_TEL);
 				// 发送验证码
 				Tel.sendTelCode(account, "您的验证码：" + verifyCode + "请勿将验证码泄露给他人！");
 			} catch (Exception e) {
@@ -177,8 +181,9 @@ final public class UsersServiceImpl implements UsersService {
 				throw new UsersException("该账号尚未注册，请先注册");
 			}
 			try {
+				verifyCode = Code.createVerifyCode(6, Code.VERIFY_CODE_TYPE_EMAIL);
 				Object[] code = { verifyCode };
-				MailUtils.sendMail(this.getClass(), account, code, "mail/user_regist_sendMailCode.properties");
+				MailUtils.sendMail(this.getClass(), account, code, "mail/user_sendMailCode.properties");
 			} catch (Exception e) {
 				e.printStackTrace();
 				throw new UsersException("验证码发送失败，系统异常，请稍后再试！");
@@ -187,6 +192,48 @@ final public class UsersServiceImpl implements UsersService {
 			throw new UsersException("账号不正确！");
 		}
 		return verifyCode;
+	}
+
+	/**
+	 * 发送修改密码验证码
+	 */
+	@Override
+	@Transactional(rollbackFor = UsersException.class)
+	final public String sendAlterPwdCodeService(String account) throws Exception {
+		return sendLoginVerifyCodeService(account);
+	}
+
+	/**
+	 * 修改密码
+	 */
+	@Override
+	@Transactional(rollbackFor = UsersException.class)
+	final public void alterPasswordService(String account, String verifyCode, String sessionVerifyCode, CustomUsers info)
+			throws Exception {
+		//验证验证码
+		if(!Regx.regxVerifCode(verifyCode, sessionVerifyCode))
+			throw new UsersException("验证码输入错误！");
+		
+		final String password1 = info.getUserPassword(); //新密码
+		final String password2 = info.getUserPassword2();	//确认密码
+		
+		//验证新密码格式
+		if(!Regx.regxPassword(password1))
+			throw new UsersException("新密码格式错误，6-18位！");
+		
+		//验证两次输入的密码是否一致
+		if(!password1.equals(password2))
+			throw new UsersException("两次输入的密码不一致！");
+		
+		//加密
+		String password = MD5.parseMD5(password1);
+		
+		if(Regx.regxTelphone(account)) {
+			//是手机号修改
+			usersMapper.updatePwdByTel(account,password);
+		}else if(Regx.regxEmail(account)){
+			usersMapper.updatePwdByEmail(account,password);
+		}
 	}
 
 }
