@@ -2,10 +2,8 @@ package com.hc.travelers.dao.mapper;
 
 import java.util.List;
 
-import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
-import org.junit.runners.Parameterized.Parameters;
 
 import com.hc.travelers.custombean.CustomUsers;
 
@@ -40,7 +38,14 @@ public interface UsersMapper {
 	 * @return	用户对象
 	 * @throws Exception
 	 */
-	List<CustomUsers> selectByTel(@Param("userTel")String userTel)throws Exception;
+	List<CustomUsers> selectByTel(@Param("account")String userTel)throws Exception;
+	/**
+	 * 根据邮箱查询用户对象
+	 * @param userMail 用户邮箱
+	 * @return 用户对象
+	 * @throws Exception
+	 */
+	List<CustomUsers> selectByMail(@Param("account")String userMail)throws Exception;
 	
 	/**
 	 * 根据手机号查询记录数量
@@ -48,8 +53,8 @@ public interface UsersMapper {
 	 * @return	记录数量
 	 * @throws Exception
 	 */
-	@Select("select count(1) from users where user_tel = #{userTel}")
-	Integer selectByTelToCount(@Param("userTel")String userTel)throws Exception;
+	@Select("select count(1) from users where user_tel = #{account}")
+	Integer selectByTelToCount(@Param("account")String userTel)throws Exception;
 	
 	/**
 	 * 插入记录   反回插入的
@@ -58,5 +63,15 @@ public interface UsersMapper {
 	 * @throws Exception
 	 */
 	void insert(CustomUsers valueUser)throws Exception;
+	
+	/**
+	 * 根据邮箱号查询记录数
+	 * @param userEmail 邮箱号
+	 * @return 记录数量
+	 * @throws Exception
+	 */
+	@Select("select count(1) from users where user_email = #{account}")
+	Integer selectByMailToCount(@Param("account")String userEmail) throws Exception;
 
+	
 }

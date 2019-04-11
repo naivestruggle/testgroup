@@ -1,13 +1,13 @@
 package com.hc.travelers.web.controller;
 
+import java.io.IOException;
+
 import javax.annotation.Resource;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.hc.travelers.custombean.CustomUsers;
 import com.hc.travelers.exception.UsersException;
@@ -52,10 +52,76 @@ final public class UsersController {
 			}
 		}
 	}
-	
+	/**
+	 * 用户登录
+	 * @param account 手机号或邮箱
+	 * @param verifyCode 验证码
+	 * @param session
+	 * @param response
+	 * @throws IOException 
+	 */
 	@RequestMapping("login")
-	private final void login(String userInfo,String verifyCode,HttpServletResponse response){
+	private void login(String account,String verifyCode,HttpSession session,HttpServletResponse response) throws IOException {
+//		System.out.println("account = " + account);
+//		System.out.println("verifyCode = " + verifyCode);
+		response.setCharacterEncoding("utf-8");
+		//得到系统生成的验证码
+		final String sessionVerifyCode = (String) session.getAttribute(account + "sessionVerifyCode");
+		try {
+			//登录
+			final CustomUsers user = usersService.login(account,verifyCode,sessionVerifyCode);
+			//清空验证码
+			session.removeAttribute(account + "sessionVerifyCode");
+			//将用户信息存入session
+			session.setAttribute("User", user);
+			//响应结果
+			response.getWriter().append("ok");
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			if(e instanceof UsersException){
+				//是自定义的业务异常
+				response.getWriter().append(e.getMessage());
+			}else{
+				//不是自定义的业务异常
+				response.getWriter().append("系统繁忙，请稍后再试！");
+			}
+		}
+		
+	}
 	
+	
+	
+	
+	
+	
+	/**
+	 * 发送登录验证码
+	 * @param account 手机号或邮箱
+	 * @param session
+	 * @param response
+	 * @throws IOException
+	 */
+	@RequestMapping("sendLoginVerifyCode")
+	private final void sendLoginVerifyCode(String account,HttpSession session,HttpServletResponse response) throws IOException{
+		response.setCharacterEncoding("utf-8");
+		try {
+			String verifyCode = usersService.sendLoginVerifyCode(account);
+			
+			//将验证码保存到session域
+			session.setAttribute(account + "sessionVerifyCode", verifyCode);
+			response.getWriter().append("ok");
+		} catch (Exception e) {
+			e.printStackTrace();
+			if(e instanceof UsersException){
+				//是自定义的业务异常
+				response.getWriter().append(e.getMessage());
+			}else{
+				//不是自定义的业务异常
+				response.getWriter().append("系统繁忙，请稍后再试！");
+			}
+		}
+		
 	}
 	
 	@RequestMapping(value="sendRegistVerifyCode")
