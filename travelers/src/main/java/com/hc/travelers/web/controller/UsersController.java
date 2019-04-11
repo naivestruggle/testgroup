@@ -27,7 +27,7 @@ final public class UsersController {
 	 * @param response		响应对象
 	 * @throws Exception
 	 */
-	@RequestMapping(value="regist",produces="text/html;charset=UTF-8")
+	@RequestMapping(value="registService",produces="text/html;charset=UTF-8")
 	private final void regist(String verifyCode,CustomUsers registUser,HttpSession session,HttpServletResponse response)throws Exception{
 		final String userTel = registUser.getUserTel();
 		response.setContentType("text/html;charset=utf-8");
@@ -53,7 +53,7 @@ final public class UsersController {
 	 * @param response
 	 * @throws IOException 
 	 */
-	@RequestMapping("login")
+	@RequestMapping("loginService")
 	private void login(String account,String verifyCode,HttpSession session,HttpServletResponse response) throws IOException {
 //		System.out.println("account = " + account);
 //		System.out.println("verifyCode = " + verifyCode);

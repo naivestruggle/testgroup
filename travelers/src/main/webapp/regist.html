@@ -39,7 +39,7 @@
 					userTel : $("#userTel").val(),
 					verifyCode : $("#verifyCode").val()
 			};
-			$.post("regist",data,function(data){
+			$.post("registService",data,function(data){
 				if(data == "ok"){
 					alert("账号注册成功");
 				}else{

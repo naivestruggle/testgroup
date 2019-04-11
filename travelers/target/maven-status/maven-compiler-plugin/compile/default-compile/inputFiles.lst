@@ -1,3 +1,22 @@
+<<<<<<< HEAD
+E:\java\yc\travelers\src\main\java\com\hc\travelers\custombean\CustomUsers.java
+E:\java\yc\travelers\src\main\java\com\common\utils\string\MD5.java
+E:\java\yc\travelers\src\main\java\com\common\utils\string\Regx.java
+E:\java\yc\travelers\src\main\java\com\common\utils\mail\Mail.java
+E:\java\yc\travelers\src\main\java\com\hc\travelers\exception\UsersException.java
+E:\java\yc\travelers\src\main\java\com\hc\travelers\service\implement\UsersServiceImpl.java
+E:\java\yc\travelers\src\main\java\com\hc\travelers\web\controller\UsersController.java
+E:\java\yc\travelers\src\main\java\com\hc\travelers\dao\mapper\UsersMapper.java
+E:\java\yc\travelers\src\main\java\com\common\utils\date\DateUtils.java
+E:\java\yc\travelers\src\main\java\com\common\utils\mail\AttachBean.java
+E:\java\yc\travelers\src\main\java\com\common\utils\string\Code.java
+E:\java\yc\travelers\src\main\java\com\hc\travelers\service\interfaces\UsersService.java
+E:\java\yc\travelers\src\main\java\com\common\utils\fileupload\FileUploadUtils.java
+E:\java\yc\travelers\src\main\java\com\common\utils\telephone\Tel.java
+E:\java\yc\travelers\src\main\java\com\hc\travelers\bean\Users.java
+E:\java\yc\travelers\src\main\java\com\hc\travelers\web\interceptor\HandlerInterceptor.java
+E:\java\yc\travelers\src\main\java\com\common\utils\mail\MailUtils.java
+=======
 F:\testgroup\travelers\src\main\java\com\hc\travelers\service\implement\UsersServiceImpl.java
 F:\testgroup\travelers\src\main\java\com\common\utils\mail\Mail.java
 F:\testgroup\travelers\src\main\java\com\common\utils\telephone\Tel.java
@@ -15,3 +34,4 @@ F:\testgroup\travelers\src\main\java\com\common\utils\date\DateUtils.java
 F:\testgroup\travelers\src\main\java\com\common\utils\string\MD5.java
 F:\testgroup\travelers\src\main\java\com\common\utils\fileupload\FileUploadUtils.java
 F:\testgroup\travelers\src\main\java\com\common\utils\mail\AttachBean.java
+>>>>>>> branch 'master' of https://github.com/naivestruggle/testgroup.git

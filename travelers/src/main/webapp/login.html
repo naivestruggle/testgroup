@@ -20,7 +20,7 @@
 				account : $("#account").val(),
 				verifyCode : $("#verifyCode").val()
 			}
-			$.post("login", data, function(data) {
+			$.post("loginService", data, function(data) {
 				if (data == "ok") {
 					//登录成功
 					window.location.href="index.html";

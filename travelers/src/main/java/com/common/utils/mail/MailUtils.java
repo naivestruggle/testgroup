@@ -25,8 +25,9 @@ public class MailUtils {
 	 * @param to	发送到
 	 * @param code	字符变量
 	 * @param fileName	mail所在的文件   mail/文件
+	 * @throws Exception 
 	 */
-	public static void sendMail(Class<?> thisClass,String to,Object[] codes,String fileName){
+	public static void sendMail(Class<?> thisClass,String to,Object[] codes,String fileName) throws Exception{
 		//获取配置文件内容
 		Properties props = new Properties();
 		try {
@@ -78,42 +79,40 @@ public class MailUtils {
 	 * @param session javax.mail.Session对象
 	 * @param mail	要发送的邮件对象
 	 */
-	public static void sendMail(Session session,Mail mail){
+	public static void sendMail(Session session,Mail mail) throws Exception{
 		MimeMessage msg = new MimeMessage(session);
-		try {
-			msg.setFrom(new InternetAddress(mail.getFromMailAddress()));	//设置发件人
-			msg.setRecipients(RecipientType.TO, mail.getToMailAddress());  //设置收件人
-			if(mail.getCcMailAddress()!= null && !mail.getCcMailAddress().isEmpty())
-				msg.setRecipients(RecipientType.CC, mail.getCcMailAddress());  //设置抄送
-			if(mail.getBccMailAddress() !=null && !mail.getBccMailAddress().isEmpty())
-				msg.setRecipients(RecipientType.BCC, mail.getBccMailAddress());  //设置暗送
-			msg.setSubject(mail.getMailSubject());	//设置主题
+	
+		msg.setFrom(new InternetAddress(mail.getFromMailAddress()));	//设置发件人
+		msg.setRecipients(RecipientType.TO, mail.getToMailAddress());  //设置收件人
+		if(mail.getCcMailAddress()!= null && !mail.getCcMailAddress().isEmpty())
+			msg.setRecipients(RecipientType.CC, mail.getCcMailAddress());  //设置抄送
+		if(mail.getBccMailAddress() !=null && !mail.getBccMailAddress().isEmpty())
+			msg.setRecipients(RecipientType.BCC, mail.getBccMailAddress());  //设置暗送
+		msg.setSubject(mail.getMailSubject());	//设置主题
+		
+		List<AttachBean> fileBodyList = mail.getAttachBeanList();  //得到文件部件集合
+		
+		if(fileBodyList == null){ //如果没有文件部件
+			msg.setContent(mail.getMailContent(),"text/html;charset=utf-8");	//设置正文
+		}else{	//如果有文件部件
+			MimeMultipart list = new MimeMultipart();  //创建多部分内容集合
 			
-			List<AttachBean> fileBodyList = mail.getAttachBeanList();  //得到文件部件集合
+			MimeBodyPart part1 = new MimeBodyPart(); //创建MimeBodyPart
+			part1.setContent(mail.getMailContent(),"text/html;charset=utf-8"); //设置正文部件的内容
+			list.addBodyPart(part1); //把正文部件添加到集合中
 			
-			if(fileBodyList == null){ //如果没有文件部件
-				msg.setContent(mail.getMailContent(),"text/html;charset=utf-8");	//设置正文
-			}else{	//如果有文件部件
-				MimeMultipart list = new MimeMultipart();  //创建多部分内容集合
-				
-				MimeBodyPart part1 = new MimeBodyPart(); //创建MimeBodyPart
-				part1.setContent(mail.getMailContent(),"text/html;charset=utf-8"); //设置正文部件的内容
-				list.addBodyPart(part1); //把正文部件添加到集合中
-				
-				for(AttachBean ab:fileBodyList){
-					MimeBodyPart part = new MimeBodyPart();	//创建MimeBodyPart
-					part.attachFile(ab.getFile());	//设置附件的内容
-					part.setFileName(MimeUtility.encodeText(ab.getAttachBeanName()));  //设置显示的文件名称，并处理乱码问题
-					list.addBodyPart(part);	//将部件添加到部件集合中
-				}
-				
-				msg.setContent(list);	//把它设置给邮件作为邮件的内容
+			for(AttachBean ab:fileBodyList){
+				MimeBodyPart part = new MimeBodyPart();	//创建MimeBodyPart
+				part.attachFile(ab.getFile());	//设置附件的内容
+				part.setFileName(MimeUtility.encodeText(ab.getAttachBeanName()));  //设置显示的文件名称，并处理乱码问题
+				list.addBodyPart(part);	//将部件添加到部件集合中
 			}
 			
-			Transport.send(msg); //发送
-		} catch (Exception e) {
-			e.printStackTrace();
+			msg.setContent(list);	//把它设置给邮件作为邮件的内容
 		}
+		
+		Transport.send(msg); //发送
+		
 	}
 	
 	
