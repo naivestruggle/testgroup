@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+	</head>
+	
+	<body>
+		<!-- 手机号：<input type="text" id="account" ><br/> -->
+		账号：<input type="text" id="account" ><br/>
+		验证码：<input type="text" id="verifyCode" ><input type="button" value="发送验证码" onclick="sendVerifyCode()"><br/>
+		新密码：<input type="password" id="userPassword" ><br/>
+		确认密码：<input type="password" id="userPassword2" ><br/>
+		<input type="button" value="确认修改" onclick="alterPassowrd()">
+	</body>
+	<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript">
+		//发送忘记密码
+		function sendVerifyCode(){
+			console.log(123)
+			var data = {
+					account : $("#account").val()
+			};
+			$.post("sendAlterPwdCode",data,function(data){
+				if(data == "ok"){
+					alert("验证码发送成功，请注意查收！");
+				}else{
+					alert(data);
+				}
+			});
+		}
+		
+		//修改密码
+		function alterPassowrd(){
+			var data = {
+					account : $("#account").val(),
+					verifyCode : $("#verifyCode").val(),
+					userPassword : $("#userPassword").val(),
+					userPassword2 : $("#userPassword2").val()
+			};
+			$.post("alterPassword",data,function(data){
+				if(data == "ok"){
+					alert("密码修改成功，请重新登录！");
+				}else{
+					alert(data);
+				}
+			});
+		}
+	</script>
+</html>

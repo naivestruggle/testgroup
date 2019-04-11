@@ -27,13 +27,6 @@
 		<property name="jdbcUrl" value="${jdbc.url}"></property>
 		<property name="user" value="${jdbc.username}"></property>
 		<property name="password" value="${jdbc.password}"></property>
-		<property name="maxIdleTime" value="300" />
-		<property name="acquireIncrement" value="2" />
-		<property name="maxStatements" value="0" />
-		<property name="initialPoolSize" value="10" />
-		<property name="idleConnectionTestPeriod" value="60" />
-		<property name="acquireRetryAttempts" value="30" />
-		<property name="testConnectionOnCheckout" value="false"/>
 	</bean>
 	
 	<!-- SqlSessionFactory -->
