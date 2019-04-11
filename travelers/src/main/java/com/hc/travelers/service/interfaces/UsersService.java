@@ -22,4 +22,21 @@ public interface UsersService {
 	 * @throws Exception
 	 */
 	String sendTelVerifyCode(String userTel)throws Exception;
+	/**
+	 * 发送登录验证码
+	 * @param account 手机或邮箱
+	 * @return
+	 * @throws Exception
+	 */
+	String sendLoginVerifyCode(String account)throws Exception;
+	
+	/**
+	 * 登录
+	 * @param account 手机或邮箱
+	 * @param verifyCode 用户输入的验证码
+	 * @param sessionVerifyCode 系统生成的验证码
+	 * @return ok 成功
+	 * @throws Exception 
+	 */
+	CustomUsers login(String account, String verifyCode, String sessionVerifyCode) throws Exception;
 }

@@ -43,7 +43,13 @@
 	<select id="selectByTel" resultMap="selectResultMapper">
 		select <include refid="allKeys"/>
 		from users
-		where user_tel = #{userTel}
+		where user_tel = #{account}
+	</select>
+	
+	<select id="selectByMail" resultMap="selectResultMapper">
+		select <include refid="allKeys"/>
+		from users
+		where user_email = #{account}
 	</select>
 	
 	<select id="selectByNamePwd"  resultMap="selectResultMapper">
