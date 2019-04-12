@@ -132,10 +132,6 @@
 			<version>1.2.17</version>
 		</dependency>
 
-		<!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-api -->
-
-		<!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
-
 		<!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
 		<dependency>
 			<groupId>org.mybatis</groupId>
@@ -151,25 +147,8 @@
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/org.springframework/spring-aop -->
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-aop</artifactId>
-			<version>5.1.5.RELEASE</version>
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/org.springframework/spring-aspects -->
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-aspects</artifactId>
-			<version>5.1.4.RELEASE</version>
-		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/org.springframework/spring-beans -->
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-beans</artifactId>
-			<version>5.1.3.RELEASE</version>
-		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/org.springframework/spring-context -->
 		<dependency>
@@ -298,116 +277,6 @@
 			<artifactId>commons-httpclient</artifactId>
 			<version>3.1</version>
 		</dependency>
-
-	<!-- https://mvnrepository.com/artifact/com.mchange/c3p0 -->
-	<dependency>
-	    <groupId>com.mchange</groupId>
-	    <artifactId>c3p0</artifactId>
-	    <version>0.9.5.2</version>
-	</dependency>
-	
-	<!-- https://mvnrepository.com/artifact/commons-pool/commons-pool -->
-	<dependency>
-	    <groupId>commons-pool</groupId>
-	    <artifactId>commons-pool</artifactId>
-	    <version>1.6</version>
-	</dependency>
-	
-
-	<!-- https://mvnrepository.com/artifact/commons-dbcp/commons-dbcp -->
-	<dependency>
-	    <groupId>commons-dbcp</groupId>
-	    <artifactId>commons-dbcp</artifactId>
-	    <version>1.4</version>
-	</dependency>
-	
-	<!-- https://mvnrepository.com/artifact/aopalliance/aopalliance -->
-	<dependency>
-	    <groupId>aopalliance</groupId>
-	    <artifactId>aopalliance</artifactId>
-	    <version>1.0</version>
-	</dependency>
-	
-	<!-- https://mvnrepository.com/artifact/asm/asm -->
-	<dependency>
-	    <groupId>asm</groupId>
-	    <artifactId>asm</artifactId>
-	    <version>3.3.1</version>
-	</dependency>
-	
-	<!-- https://mvnrepository.com/artifact/org.springframework/spring-aspects -->
-	<dependency>
-	    <groupId>org.springframework</groupId>
-	    <artifactId>spring-aspects</artifactId>
-	    <version>5.1.4.RELEASE</version>
-	</dependency>
-
-	<!-- https://mvnrepository.com/artifact/aspectj/aspectjtools -->
-	<dependency>
-	    <groupId>aspectj</groupId>
-	    <artifactId>aspectjtools</artifactId>
-	    <version>1.5.0</version>
-	</dependency>
-	
-	<!-- https://mvnrepository.com/artifact/aspectj/aspectjweaver -->
-	<dependency>
-	    <groupId>aspectj</groupId>
-	    <artifactId>aspectjweaver</artifactId>
-	    <version>1.5.3</version>
-	</dependency>
-	
-	<!-- https://mvnrepository.com/artifact/cglib/cglib -->
-	<dependency>
-	    <groupId>cglib</groupId>
-	    <artifactId>cglib</artifactId>
-	    <version>3.2.5</version>
-	</dependency>
-	
-	<!-- https://mvnrepository.com/artifact/commons-logging/commons-logging -->
-	<dependency>
-	    <groupId>commons-logging</groupId>
-	    <artifactId>commons-logging</artifactId>
-	    <version>1.1.1</version>
-	</dependency>
-	
-	<!-- https://mvnrepository.com/artifact/org.javassist/javassist -->
-	<dependency>
-	    <groupId>org.javassist</groupId>
-	    <artifactId>javassist</artifactId>
-	    <version>3.20.0-GA</version>
-	</dependency>
-	
-	<!-- https://mvnrepository.com/artifact/javax.servlet/jstl -->
-	<dependency>
-	    <groupId>javax.servlet</groupId>
-	    <artifactId>jstl</artifactId>
-	    <version>1.2</version>
-	</dependency>
-	
-	<!-- https://mvnrepository.com/artifact/log4j/log4j -->
-	<dependency>
-	    <groupId>log4j</groupId>
-	    <artifactId>log4j</artifactId>
-	    <version>1.2.17</version>
-	</dependency>
-	
-	<!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-api -->
-	
-	<!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
-	
-	<!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
-	<dependency>
-	    <groupId>org.mybatis</groupId>
-	    <artifactId>mybatis</artifactId>
-	    <version>3.4.6</version>
-	</dependency>
-	
-	<!-- https://mvnrepository.com/artifact/org.mybatis/mybatis-spring -->
-	<dependency>
-	    <groupId>org.mybatis</groupId>
-	    <artifactId>mybatis-spring</artifactId>
-	    <version>1.3.2</version>
-	</dependency>
 	
 	<!-- https://mvnrepository.com/artifact/org.springframework/spring-aop -->
 	<dependency>
@@ -416,146 +285,11 @@
 	    <version>5.1.5.RELEASE</version>
 	</dependency>
 	
-	<!-- https://mvnrepository.com/artifact/org.springframework/spring-aspects -->
-	<dependency>
-	    <groupId>org.springframework</groupId>
-	    <artifactId>spring-aspects</artifactId>
-	    <version>5.1.4.RELEASE</version>
-	</dependency>
-
     <!-- https://mvnrepository.com/artifact/org.springframework/spring-beans -->
 	<dependency>
 	    <groupId>org.springframework</groupId>
 	    <artifactId>spring-beans</artifactId>
 	    <version>5.1.3.RELEASE</version>
-	</dependency>
-	
-	    <!-- https://mvnrepository.com/artifact/org.springframework/spring-context -->
-	<dependency>
-	    <groupId>org.springframework</groupId>
-	    <artifactId>spring-context</artifactId>
-	    <version>5.1.3.RELEASE</version>
-	</dependency>
-	
-	<!-- https://mvnrepository.com/artifact/org.springframework/spring-context-support -->
-	<dependency>
-	    <groupId>org.springframework</groupId>
-	    <artifactId>spring-context-support</artifactId>
-	    <version>5.1.5.RELEASE</version>
-	</dependency>
-	
-	<!-- https://mvnrepository.com/artifact/org.springframework/spring-core -->
-	<dependency>
-	    <groupId>org.springframework</groupId>
-	    <artifactId>spring-core</artifactId>
-	    <version>5.1.5.RELEASE</version>
-	</dependency>
-	
-	<!-- https://mvnrepository.com/artifact/org.springframework/spring-expression -->
-	<dependency>
-	    <groupId>org.springframework</groupId>
-	    <artifactId>spring-expression</artifactId>
-	    <version>5.1.5.RELEASE</version>
-	</dependency>
-	
-	<!-- https://mvnrepository.com/artifact/org.springframework/spring-jdbc -->
-	<dependency>
-	    <groupId>org.springframework</groupId>
-	    <artifactId>spring-jdbc</artifactId>
-	    <version>5.1.5.RELEASE</version>
-	</dependency>
-	
-	<!-- https://mvnrepository.com/artifact/org.springframework/spring-orm -->
-	<dependency>
-	    <groupId>org.springframework</groupId>
-	    <artifactId>spring-orm</artifactId>
-	    <version>5.1.5.RELEASE</version>
-	</dependency>
-	
-	<!-- https://mvnrepository.com/artifact/org.springframework/spring-tx -->
-	<dependency>
-	    <groupId>org.springframework</groupId>
-	    <artifactId>spring-tx</artifactId>
-	    <version>5.1.5.RELEASE</version>
-	</dependency>
-	
-	<!-- https://mvnrepository.com/artifact/org.springframework/spring-test -->
-	<dependency>
-	    <groupId>org.springframework</groupId>
-	    <artifactId>spring-test</artifactId>
-	    <version>5.1.1.RELEASE</version>
-	    <scope>test</scope>
-	</dependency>
-	
-	<!-- https://mvnrepository.com/artifact/org.springframework/spring-web -->
-	<dependency>
-	    <groupId>org.springframework</groupId>
-	    <artifactId>spring-web</artifactId>
-	    <version>5.1.5.RELEASE</version>
-	</dependency>
-	
-	<!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc -->
-	<dependency>
-	    <groupId>org.springframework</groupId>
-	    <artifactId>spring-webmvc</artifactId>
-	    <version>5.1.5.RELEASE</version>
-	</dependency>
-	
-	
-	<!-- https://mvnrepository.com/artifact/com.github.pagehelper/pagehelper -->
-	<dependency>
-	    <groupId>com.github.pagehelper</groupId>
-	    <artifactId>pagehelper</artifactId>
-	    <version>4.1.6</version>
-	</dependency>
-	
-	<!-- https://mvnrepository.com/artifact/commons-fileupload/commons-fileupload -->
-	<dependency>
-	    <groupId>commons-fileupload</groupId>
-	    <artifactId>commons-fileupload</artifactId>
-	    <version>1.3.3</version>
-	</dependency>
-	
-	<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-validator -->
-	<dependency>
-	    <groupId>org.hibernate</groupId>
-	    <artifactId>hibernate-validator</artifactId>
-	    <version>6.0.13.Final</version>
-	</dependency>
-	
-	<!-- https://mvnrepository.com/artifact/org.jboss.logging/jboss-logging -->
-	<dependency>
-	    <groupId>org.jboss.logging</groupId>
-	    <artifactId>jboss-logging</artifactId>
-	    <version>3.3.0.Final</version>
-	</dependency>
-	
-	<!-- https://mvnrepository.com/artifact/javax.validation/validation-api -->
-	<dependency>
-	    <groupId>javax.validation</groupId>
-	    <artifactId>validation-api</artifactId>
-	    <version>2.0.1.Final</version>
-	</dependency>
-	
-	<!-- https://mvnrepository.com/artifact/javax.mail/mail -->
-	<dependency>
-	    <groupId>javax.mail</groupId>
-	    <artifactId>mail</artifactId>
-	    <version>1.4.7</version>
-	</dependency>
-
-	<!-- https://mvnrepository.com/artifact/javax.activation/activation -->
-	<dependency>
-	    <groupId>javax.activation</groupId>
-	    <artifactId>activation</artifactId>
-	    <version>1.1.1</version>
-	</dependency>
-	
-	<!-- https://mvnrepository.com/artifact/commons-httpclient/commons-httpclient -->
-	<dependency>
-	    <groupId>commons-httpclient</groupId>
-	    <artifactId>commons-httpclient</artifactId>
-	    <version>3.1</version>
 	</dependency>
 	
 	<!-- https://mvnrepository.com/artifact/commons-codec/commons-codec -->
