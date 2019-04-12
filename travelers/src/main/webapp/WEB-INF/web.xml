@@ -59,6 +59,9 @@
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
     
+
+    
+  
     <!-- 解决post乱码问题 -->
 	<filter>
 		<filter-name>characterEncodingFilter</filter-name>
@@ -72,6 +75,8 @@
 			<param-value>true</param-value>
 		</init-param>
 	</filter>
+	
+ 
 	
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>

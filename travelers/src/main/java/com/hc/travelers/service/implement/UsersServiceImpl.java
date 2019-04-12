@@ -198,7 +198,7 @@ final public class UsersServiceImpl implements UsersService {
 	 * 发送修改密码验证码
 	 */
 	@Override
-	@Transactional(rollbackFor = UsersException.class)
+	@Transactional(rollbackFor = UsersException.class )
 	final public String sendAlterPwdCodeService(String account) throws Exception {
 		return sendLoginVerifyCodeService(account);
 	}
